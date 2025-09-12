@@ -9,9 +9,9 @@ Au cours de mon BTS SIO à Limayrac, j'ai travaillé sur divers exercices de pro
 
 ## Contenu
 
-- Exercices en Python, Java, PHP, etc.  
-- Projets et mini-applications  
-- Scripts et exemples de code  
+- Exercices en HTML, CSS, JS, PHP, SQL.  
+- Projets et mini-applications
+- Scripts et exemples de code
 
 ## Utilisation
 
