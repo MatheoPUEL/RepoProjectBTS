@@ -18,4 +18,4 @@ Au cours de mon BTS SIO à Limayrac, j'ai travaillé sur divers exercices de pro
 Ce dépôt est personnel et utilisé pour suivre ma progression. Vous pouvez cloner le dépôt et parcourir les différents exercices pour voir les concepts abordés.
 
 ```bash
-git clone https://github.com/ton-utilisateur/ton-repo.git
+https://github.com/MatheoPUEL/RepoProjectBTS
