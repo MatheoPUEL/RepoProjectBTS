@@ -12,28 +12,25 @@ require_once('./voiture.php');
 </head>
 <body>
     <?php
-    $voiture = new Voiture();
-    $voiture->nom = "c'est ma voiture";
-    $voiture->marque = "Honda";
-    $voiture->modele = "civic";
+    $voiture = new Voiture("Voiture 1");
+    $voiture->afficher();
 
-    $voiture->aDemarre();
+    $voiture1 = new Voiture("Voiture 1");
+    $voiture1->marque = "Honda";
+    $voiture1->modele = "civic";
+
+    $voiture1->aDemarre();
     echo "La voiture a démarré </br>";
 
-    $km =100;
-    $voiture->avancer($km);
+    $km =200;
+    $voiture1->avancer($km);
     echo "la voiture a avancé de" . $km ." </br>";
 
-    $voiture->arreter();
+    $voiture1->arreter();
     echo "la voiture est arreter </br>";
 
-    echo "le nom c'est: " . $voiture->nom ."</br>";
-
-
-    $voiture->ADemarre();
-    $voiture->avancer(100);
-    $voiture->arreter();
-    $voiture->afficher();
+    echo "le nom c'est: " . $voiture1->nom ."</br>";
+    $voiture1->afficher();
     ?>
 </body>
 </html>
