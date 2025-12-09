@@ -84,11 +84,11 @@ $faq = "Si vous souhaitez avoir des précisions sur la ligue ou nous poser une q
         <?php
         require_once ('./bdd/bdd_co.php');
         $dbh = db_connect();
-        $sql = "SELECT faq.id_faq, faq.question, faq.reponse, faq.dat_question, faq.dat_reponse, user.pseudo, faq.id_user
-                FROM faq 
+        $sql = "SELECT faq.id_faq, faq.question, faq.reponse, faq.dat_question, faq.dat_reponse, user.pseudo, faq.id_user, faq.is_mod, faq.date_mod
+                FROM faq
                 INNER JOIN user on faq.id_user = user.id_user
                 WHERE user.id_ligue = :idligue
-                ORDER BY faq.dat_question desc;";
+                ORDER BY faq.date_mod desc;";
         try {
             $sth = $dbh->prepare($sql);
             $sth->execute([":idligue"=>$_GET['id']]);
@@ -105,13 +105,22 @@ $faq = "Si vous souhaitez avoir des précisions sur la ligue ou nous poser une q
                 ?>
                 <div class="question-post">
                     <div class="question-header">
-                        
+
                             <div><p><?= $row['pseudo'] ?> <?php if ($row['id_user'] == $_SESSION['usertype'] > 1  ){ ?><a href="./form/deleteMessage.form.php?idfaq=<?=$row['id_faq']?>&idligue=<?=$_GET['id']?>"> - Supprimer</a><a href="./editMessage.php?idfaq=<?=$row['id_faq']?>"> - Modifier</a><?php } ?> <?php if ($_SESSION['usertype'] > 1 && $row['reponse'] == null ){ ?><a href="./admin_respond.php?idfaq=<?=$row['id_faq']?>"> - Répondre</a><?php } ?></p></div>
                             <ul class="question-date_info">
+
+                                <?php
+                                if($row['is_mod'] == 1) {
+                                  ?>
+                                  <li>Modifié le: <?= $row['date_mod'] ?></li>
+                                  <?php
+                                }
+                                ?>
+
                                 <li><?= $dat_dmy ?></li>
                                 <li><?= $dat_mh ?></li>
                             </ul>
-                        
+
                     </div>
                     <p><?= $row['question'] ?></p>
                 </div>
@@ -140,7 +149,7 @@ $faq = "Si vous souhaitez avoir des précisions sur la ligue ou nous poser une q
         }
         ?>
 
-                
+
 
     </section>
 <?php
