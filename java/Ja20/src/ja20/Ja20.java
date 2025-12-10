@@ -16,7 +16,7 @@ public class Ja20 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int nbQuestion = 5;
+        int nbQuestion = 10;
         int points = 0;
         int nb1;
         int nb2;
@@ -49,3 +49,4 @@ public class Ja20 {
     }
     
 }
+
